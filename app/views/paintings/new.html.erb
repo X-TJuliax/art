@@ -1,0 +1,40 @@
+<h1>Create a new painting</h1>
+
+<% if @painting.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@painting.errors.count, "error") %> prohibited this painting from being saved:</h2>
+    <ul>
+      <% @painting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @painting do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, required: true %><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price, required: true %><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :artist %><br>
+    <%= f.collection_select :artist_id, @artists, :id, :name %><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :gallery %><br>
+    <%= f.collection_select :gallery_id, @galleries, :id, :name %><br>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create Painting" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', paintings_path %>

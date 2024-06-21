@@ -1,0 +1,20 @@
+<%= form_for(@artist) do |form| %>
+    <div class="field">
+      <%= form.label :name%>
+      <%= form.text_field :name, :required => true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :age %>
+      <%= form.number_field :age, :required => true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :experience_level %>
+      <%= form.select :experience_level, (1..10) %>
+    </div>
+
+    <div class="action">
+      <%= form.submit "Update artist" %>
+    </div>
+<% end %>

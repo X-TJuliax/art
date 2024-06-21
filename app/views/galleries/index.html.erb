@@ -1,0 +1,11 @@
+<h1>Gallery on Gallery</h1>
+<%= link_to 'Create a new gallery', new_gallery_path %>
+    <ul>
+        <% @galleries.each do |gallery| %>
+        <tr>
+            <li><%= link_to gallery.name, gallery %></li><br>
+            <td><%= link_to 'Show', gallery_path(gallery) %></td>
+            <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
+        </tr>
+        <% end %>
+    </ul>

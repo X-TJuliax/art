@@ -1,0 +1,14 @@
+<h2>Gallery Information Page</h2>
+
+<h2><%= "#{@gallery.name}'s Information" %></h2>
+<h3>Gallery Name: <%=@gallery.name %></h3>
+<h3>Location :<%=@gallery.location %></h3><br>
+<label>List of paintings that can be found here:</label>
+    <ul>
+      <% @gallery.paintings.each do |painting| %>
+      <li><%= link_to paintings.name, painting %></li>
+      <% end %>
+    </ul>
+<%= button_to "Going Out Of Business", @gallery, method: :delete %>
+<%= link_to 'Back', galleries_path %>
+

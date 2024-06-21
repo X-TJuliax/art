@@ -1,0 +1,19 @@
+<%= form_for @gallery do |f| %>
+    <div class="field">
+     <%= f.label :name %><br>
+     <%= f.text_field :name, :required => true %><br>
+    </div>
+
+    <div class="field">
+     <%= f.label :location %><br>
+     <%= f.text_field :location, :required => true %><br>
+    </div>
+
+    
+
+    <div class="action">
+     <%= f.submit "Create Gallery" %>
+    </div>
+<% end %>
+
+<%= link_to 'Back', galleries_path %>
